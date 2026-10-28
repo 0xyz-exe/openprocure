@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: openprocure-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-openprocure}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-openprocure_secret_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-openprocure}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openprocure"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    container_name: openprocure-api
+    environment:
+      DATABASE_URL: postgresql://openprocure:openprocure_secret_pass@db:5432/openprocure
+      SECRET_KEY: ${SECRET_KEY:-openprocure_super_secret_jwt_key_2026_enterprise_secure}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: openprocure-web
+    ports:
+      - "5180:80"
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
+    driver: local

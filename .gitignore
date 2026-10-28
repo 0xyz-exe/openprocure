@@ -1,0 +1,27 @@
+# Node
+node_modules/
+dist/
+.npm/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
