@@ -6,6 +6,38 @@
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20REST-009688.svg)](https://fastapi.tiangolo.com/)
 [![React 19](https://img.shields.io/badge/Frontend-React%2019%20%2B%20Vite-61DAFB.svg)](https://react.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Styling-Tailwind%20CSS%20v4-38B2AC.svg)](https://tailwindcss.com/)
+
+## Screenshots
+
+### 1. Login
+
+The secure login screen for the enterprise procurement workspace — email/password authentication with JWT session management and role-based access control.
+
+![Login](docs/screenshots/01-login.png)
+
+### 2. Procurement Intelligence Dashboard
+
+Live KPIs from the real PostgreSQL-backed API: $47,304 total PO spend, 5/5 verified suppliers, 1 pending approval, 1 three-way exception — with spend-by-category breakdown, PO pipeline status, and a live audit log.
+
+![Procurement Intelligence Dashboard](docs/screenshots/02-dashboard.png)
+
+### 3. Supplier Directory
+
+Full vendor registry with 5 approved suppliers — Nexus Cloud Networks, Quantum Microchips, Apex Logistics, Starlight Industrial Supplies, Vanguard Office Logistics — each showing category, payment terms, rating, and contact details.
+
+![Supplier Directory](docs/screenshots/03-suppliers.png)
+
+### 4. Requisitions
+
+Purchase requisition management listing open PRs with requester, department, title, total amount, and multi-tier approval status — with create, review, and approve/reject workflows.
+
+![Requisitions](docs/screenshots/04-requisitions.png)
+
+### 5. Purchase Orders
+
+PO lifecycle tracking from issued through goods receipt — showing supplier, PO number, value, status (Partially Received / Approved / Closed), and three-way match indicators for invoice reconciliation.
+
+![Purchase Orders](docs/screenshots/05-purchase-orders.png)
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL%20%2F%20SQLite-336791.svg)](https://www.postgresql.org/)
 [![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-emerald.svg)](apps/api/tests/)
 
